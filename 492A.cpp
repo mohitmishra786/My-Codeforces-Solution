@@ -42,26 +42,24 @@ int main(){
 
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);cout.tie(0);
-	init_code();
+//	init_code();
 
-	int t;
-	int r = 0;
+	ll t;
 	cin >> t;
+
+	ll ans = 0;int n = 0;
+	int i = 1;
 	vll v;
-	bool A = true;
-	int sum = 0;
-	for(int i = 0; i <= t; ++i){
-		sum = sum + i;
-		v.push_back(sum);
-		r++;
-		if(accumulate(v.begin(),v.end(),0) >= t){
+	t++;
+	for(int j = 0; j < t ; j++){
+		ans = ans + i;
+		v.push_back(ans);
+		i++;
+		n++;
+		if(accumulate(v.begin(), v.end(), 0) >= t){
 			break;
 		}
 	}
-	if(r==1){
-		cout << r << endl;
-	}
-	else
-		cout << r - 1 << endl;
+	cout << n - 1 << endl;
 	
 }
