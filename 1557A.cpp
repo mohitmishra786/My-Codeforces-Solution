@@ -42,37 +42,28 @@ int main(){
 
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);cout.tie(0);
-	init_code();
+//	init_code();
 
-	ll t;
+	int t;
 	cin >> t;
 
 	while(t--){
-		ll n;
-		cin >> n;
-		ll z;
+		int n;cin >> n;
 		vll v;
-		for(ll i = 0; i < n; i++){
+		ll z;
+		for(int i = 0; i < n; i++){
 			cin >> z;
 			v.push_back(z);
 		}
 
 		sort(v.begin(), v.end());
+		ll m = v[n-1];
+		ll sum = 0;
 
-		// double ans = (double)accumulate(v.begin(), v.end() - 1, 0)/(n-1);
-
-		// double sol = ans + v[n-1];
-
-		// cout << sol << endl;
-
-		ll max = v[n-1];
-		v.erase(v.begin() + n-1, v.end());
-
-		double ans = (double)accumulate(v.begin(), v.end(), 0)/(n-1);
-		double sol = ans + max;
-		cout <<fixed << std::setprecision(9) << sol << endl;
-
-	
+		for(int i = 0; i < n - 1; i++){
+			sum += v[i];
+		}
+		cout << fixed << setprecision(10) << (1.0 * sum)/(n-1) + m <<endl;
 	}
 	
 }
